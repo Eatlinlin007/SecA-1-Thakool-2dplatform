@@ -23,12 +23,12 @@ public abstract class Character : MonoBehaviour
     {
         return Health <= 0;
     }
-    public void OnConnectedToServer(int damage)
+    public void TakeDamage(int damage)
     {
         Health -= damage;
     }
-    public void Init(int newHealth)
+   /* public void Init(int newHealth)
     {
         Health = newHealth;
-    }
+    }*/
 }

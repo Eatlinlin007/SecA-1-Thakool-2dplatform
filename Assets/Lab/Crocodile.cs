@@ -15,7 +15,7 @@ public class Crocodile : Enemy
 
     private void Start()
     {
-        Init(100);
+       // Init(100);
     }
 
     private void Update()
