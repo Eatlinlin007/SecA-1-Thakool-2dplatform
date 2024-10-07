@@ -16,4 +16,8 @@ public class Rock : Weapon
     {
         Debug.Log("Rock move with Rigidbody:force");
     }
+    public override void OnHitWith(Character Hit)
+    {
+
+    }
 }

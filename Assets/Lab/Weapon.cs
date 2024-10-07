@@ -18,10 +18,8 @@ public abstract class Weapon : MonoBehaviour
     }
     
      protected string owner;
-    public void OnHitWith(Character Hit)
-    {
-        
-    }
+    public abstract void OnHitWith(Character Hit);
+
     public abstract void Move();
     public int GetShootDirection()
     {
