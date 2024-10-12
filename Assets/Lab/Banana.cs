@@ -16,7 +16,7 @@ public class Banana : Weapon
     {
         Debug.Log("Banana moves with constant speed using Transform ");
     }
-    public override void OnHitWith(Character Hit)
+    public override void OnHitWith(Character camelCase)
     {
 
     }
