@@ -18,7 +18,7 @@ public abstract class Weapon : MonoBehaviour
     }
     
      protected string owner;
-    public abstract void OnHitWith(Character camelCase);
+    public abstract void OnHitWith(Character character);
 
     public abstract void Move();
     public int GetShootDirection()
