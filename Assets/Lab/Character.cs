@@ -16,7 +16,7 @@ public abstract class Character : MonoBehaviour
             health = value;
         }
     }
-    public Animation anim;
+    public Animator anim;
     public Rigidbody2D rb;
 
     public bool IsDead()
@@ -35,5 +35,6 @@ public abstract class Character : MonoBehaviour
     public void Init(int newHealth)
     {
         Health = newHealth;
+        
     }
 }

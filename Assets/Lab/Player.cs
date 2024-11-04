@@ -10,22 +10,22 @@ public class Player : Character,IShootable
 
     [field: SerializeField] public Transform SpawnPoint { get; set; }
 
-    public void Shoot()
-    {
-        if (Input.GetButtonDown("Fire1" ) && (WaitTime >= ReloadTimer)) 
-        {
-            Instantiate(Bullet,SpawnPoint.position,Quaternion.identity);
-            WaitTime = 0;
-        }
-    }
     [field: SerializeField]
     public float WaitTime { get; set; }
     [field: SerializeField]
     public float ReloadTimer { get; set; }
+    public void Shoot()
+    {
+        if (Input.GetButtonDown("Fire1") && (WaitTime >= ReloadTimer))
+        {
+            Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
+            WaitTime = 0;
+        }
+    }
     void Start()
     {
         Init(100);
-       // WaitTime = 0.0f;
+        WaitTime = 0.0f;
        // ReloadTimer = 1.0f;
     }
 
