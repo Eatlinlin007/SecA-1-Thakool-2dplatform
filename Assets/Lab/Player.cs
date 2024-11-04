@@ -6,31 +6,27 @@ public class Player : Character,IShootable
 {
     float attackRange;
     public Player player;
+    [field: SerializeField] public GameObject Bullet { get; set; }
 
-    [field: SerializeField]
-    GameObject bullet;
-    public GameObject Bullet { get { return bullet; } set { bullet = value; } }
-
-    [field: SerializeField]
-    Transform spawnPoint;
-    public Transform SpawnPoint { get { return spawnPoint; } set { spawnPoint = value; } }
+    [field: SerializeField] public Transform SpawnPoint { get; set; }
 
     public void Shoot()
     {
-        if (Input.GetButtonDown("Fire1")&& bulletWaitTime >= bulletTimer) 
+        if (Input.GetButtonDown("Fire1" ) && (WaitTime >= ReloadTimer)) 
         {
-            Instantiate(bullet,SpawnPoint.position,Quaternion.identity);
+            Instantiate(Bullet,SpawnPoint.position,Quaternion.identity);
+            WaitTime = 0;
         }
     }
     [field: SerializeField]
-    public float bulletWaitTime { get; set; }
+    public float WaitTime { get; set; }
     [field: SerializeField]
-    public float bulletTimer { get; set; }
+    public float ReloadTimer { get; set; }
     void Start()
     {
         Init(100);
-        bulletWaitTime = 0.0f;
-        bulletTimer = 1.0f;
+       // WaitTime = 0.0f;
+       // ReloadTimer = 1.0f;
     }
 
     void Update()
@@ -40,6 +36,6 @@ public class Player : Character,IShootable
 
     void FixeUpdate() 
     {
-        bulletTimer += Time.fixedDeltaTime;
+        WaitTime += Time.fixedDeltaTime;
     }
 }

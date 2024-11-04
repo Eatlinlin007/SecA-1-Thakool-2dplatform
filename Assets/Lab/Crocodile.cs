@@ -15,9 +15,9 @@ public class Crocodile : Enemy,IShootable
     Transform spawnPoint;
     public Transform SpawnPoint { get { return spawnPoint; } set { spawnPoint = value; } }
 
-      public float bulletWaitTime { get; set; }
+      public float WaitTime { get; set; }
 
-      public float bulletTimer { get; set; }
+      public float ReloadTimer { get; set; }
 
 
     private void Start()
@@ -27,13 +27,13 @@ public class Crocodile : Enemy,IShootable
 
     private void Update()
     {
-        bulletTimer -= Time.deltaTime;
+        ReloadTimer -= Time.deltaTime;
 
         Behaviour();
 
-        if (bulletTimer < 0)
+        if (ReloadTimer < 0)
         {
-            bulletTimer = bulletWaitTime;
+            ReloadTimer = WaitTime;
         }
     }
     public override void Behaviour()
@@ -48,10 +48,10 @@ public class Crocodile : Enemy,IShootable
     }
     public void Shoot()
     {
-        if (bulletWaitTime >= bulletTimer) 
+        if (WaitTime >= ReloadTimer) 
         {
             GameObject obj = Instantiate(bullet, spawnPoint.position, Quaternion.identity);
-            bulletWaitTime = 0;
+            WaitTime = 0;
         }
     }
 }

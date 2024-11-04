@@ -1111,10 +1111,10 @@ MonoBehaviour:
   anim: {fileID: 0}
   rb: {fileID: 708194682}
   player: {fileID: 708194677}
-  bullet: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
-  spawnPoint: {fileID: 1321645230}
-  <bulletWaitTime>k__BackingField: 0
-  <bulletTimer>k__BackingField: 0
+  <Bullet>k__BackingField: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
+  <SpawnPoint>k__BackingField: {fileID: 1321645230}
+  <WaitTime>k__BackingField: 0
+  <ReloadTimer>k__BackingField: 0
 --- !u!50 &708194682 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5044026, guid: 6dde6029886a24408b05eced6b5964a6, type: 3}
