@@ -10,10 +10,10 @@ public class Player : Character,IShootable
 
     [field: SerializeField] public Transform SpawnPoint { get; set; }
 
-    [field: SerializeField]
-    public float WaitTime { get; set; }
-    [field: SerializeField]
-    public float ReloadTimer { get; set; }
+
+    [field: SerializeField] public float WaitTime { get; set; }
+
+    [field: SerializeField] public float ReloadTimer { get; set; }
     public void Shoot()
     {
         if (Input.GetButtonDown("Fire1") && (WaitTime >= ReloadTimer))
@@ -26,7 +26,7 @@ public class Player : Character,IShootable
     {
         Init(100);
         WaitTime = 0.0f;
-       // ReloadTimer = 1.0f;
+        ReloadTimer = 2.0f;
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class Player : Character,IShootable
         Shoot();
     }
 
-    void FixeUpdate() 
+     void FixedUpdate() 
     {
         WaitTime += Time.fixedDeltaTime;
     }
