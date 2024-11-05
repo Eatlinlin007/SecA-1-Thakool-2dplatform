@@ -11,24 +11,24 @@ public class Crocodile : Enemy,IShootable
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public Transform SpawnPoint { get; set; }
 
-    public float WaitTime { get; set; }
+    public float bulletWaitTime { get; set; }
 
-      public float ReloadTimer { get; set; }
+      public float bulletTimer { get; set; }
 
 
     private void Start()
     {
         Init(100);
-        WaitTime = 0.0f;
-        ReloadTimer = 5.0f;
+        bulletWaitTime = 0.0f;
+        bulletTimer = 5.0f;
         DamageHit = 30;
         AttackRange = 6;
         player = GameObject.FindObjectOfType<Player>();
     }
 
-     void FixedUpdate()
+    private void FixedUpdate()
     {
-        WaitTime += Time.fixedDeltaTime;
+        bulletWaitTime += Time.fixedDeltaTime;
         Behaviour();
     }
     public override void Behaviour()
@@ -42,11 +42,14 @@ public class Crocodile : Enemy,IShootable
     }
     public void Shoot()
     {
-        if (WaitTime >= ReloadTimer) 
+        if (bulletWaitTime >= bulletTimer) 
         {
             anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
-            WaitTime = 0;
+           // Rock rockScipt = obj.GetComponent<Rock>();
+           // rockScipt.Init(20, this);
+
+            bulletWaitTime = 0;
         }
     }
 }

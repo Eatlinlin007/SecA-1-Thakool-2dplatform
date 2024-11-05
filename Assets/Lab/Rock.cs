@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class Rock : Weapon
 {
-    private Rigidbody2D rb2d;
-    private Vector2 force;
+     Rigidbody2D rb2d;
+     Vector2 force;
 
     void Start()
     {
-        Damage = 40;
+        Damage = 20;
+        force = new Vector2(GetShootDirection() * 100, 400);
         Move();
     }
     public override void Move()
     {
-        Debug.Log("Rock move with Rigidbody:force");
+       // Debug.Log("Rock move with Rigidbody:force");
+       rb2d.AddForce (force, ForceMode2D.Impulse) ;
     }
     public override void OnHitWith(Character character)
     {
-
+        if(character is Player)
+        {
+            character.TakeDamage(this.Damage);
+        }
     }
 }
