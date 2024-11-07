@@ -9,8 +9,9 @@ public class Rock : Weapon
 
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         Damage = 20;
-        force = new Vector2(GetShootDirection() * 100, 400);
+        force = new Vector2(GetShootDirection() * 5, 10);
         Move();
     }
     public override void Move()

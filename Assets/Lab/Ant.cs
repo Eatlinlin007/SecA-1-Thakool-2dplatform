@@ -10,8 +10,10 @@ public class Ant : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
 
-       // Init(10);
-       // Debug.Log(Health);
+        Init(10);
+
+        DamageHit = 10;
+        //Debug.Log(Health);
 
     }
 

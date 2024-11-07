@@ -16,7 +16,7 @@ public class Crocodile : Enemy,IShootable
       public float bulletTimer { get; set; }
 
 
-    private void Start()
+     void Start()
     {
         Init(100);
         bulletWaitTime = 0.0f;
@@ -46,8 +46,8 @@ public class Crocodile : Enemy,IShootable
         {
             anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
-           // Rock rockScipt = obj.GetComponent<Rock>();
-           // rockScipt.Init(20, this);
+            Rock rock = obj.GetComponent<Rock>();
+            rock.Init(20, this);
 
             bulletWaitTime = 0;
         }
